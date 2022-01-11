@@ -1,0 +1,318 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{D8A0F814-8F51-3A89-B896-347C7FB4438E}</ProjectGuid>
+    <RootNamespace>wearable</RootNamespace>
+    <Keyword>QtVS_v304</Keyword>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformMinVersion>10.0.17763.0</WindowsTargetPlatformMinVersion>
+  <QtMsBuild Condition="'$(QtMsBuild)'=='' or !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild></PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <PlatformToolset>v141</PlatformToolset>
+    <OutputDirectory>release\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>Application</ConfigurationType>
+    <IntermediateDirectory>release\</IntermediateDirectory>
+    <PrimaryOutput>wearable</PrimaryOutput>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <PlatformToolset>v141</PlatformToolset>
+    <OutputDirectory>debug\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>Application</ConfigurationType>
+    <IntermediateDirectory>debug\</IntermediateDirectory>
+    <PrimaryOutput>wearable</PrimaryOutput>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" /><Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')"><Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." /></Target>
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" /><ImportGroup Condition="Exists('$(QtMsBuild)\qt_defaults.props')"><Import Project="$(QtMsBuild)\qt_defaults.props" /></ImportGroup><PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"><OutDir>debug\</OutDir><IntDir>debug\</IntDir><TargetName>wearable</TargetName><IgnoreImportLibrary>true</IgnoreImportLibrary></PropertyGroup><PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"><OutDir>release\</OutDir><IntDir>release\</IntDir><TargetName>wearable</TargetName><IgnoreImportLibrary>true</IgnoreImportLibrary><LinkIncremental>false</LinkIncremental></PropertyGroup><PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"><QtInstall>msvc2017x86</QtInstall><QtModules>core;network;gui;qml;quick;quickcontrols2</QtModules></PropertyGroup><PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"><QtInstall>msvc2017x86</QtInstall><QtModules>core;network;gui;qml;quick;quickcontrols2</QtModules></PropertyGroup><ImportGroup Condition="Exists('$(QtMsBuild)\qt.props')"><Import Project="$(QtMsBuild)\qt.props" /></ImportGroup>
+  
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.;release;/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>release\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <DisableSpecificWarnings>4577;4467;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ObjectFileName>release\</ObjectFileName>
+      <Optimization>MaxSpeed</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;QT_NO_DEBUG;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <ProgramDataBaseFileName></ProgramDataBaseFileName>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+    <MultiProcessorCompilation>true</MultiProcessorCompilation></ClCompile>
+    <Link>
+      <AdditionalDependencies>shell32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\opensslx86\lib;C:\Utils\my_sql\mysql-5.6.11-win32\lib;C:\Utils\postgresqlx86\pgsql\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>"/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'" %(AdditionalOptions)</AdditionalOptions>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <LinkIncremental>false</LinkIncremental>
+      <OutputFile>$(OutDir)\wearable.exe</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SubSystem>Windows</SubSystem>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;QT_NO_DEBUG;QT_QUICKCONTROLS2_LIB;QT_QUICK_LIB;QT_GUI_LIB;QT_QML_LIB;QT_NETWORK_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  <QtRcc><InitFuncName>wearable</InitFuncName><Compression>default</Compression><ExecutionDescription>Rcc'ing %(Identity)...</ExecutionDescription><QtRccDir>$(Configuration)</QtRccDir><QtRccFileName>qrc_%(Filename).cpp</QtRccFileName></QtRcc></ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.;debug;/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>debug\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4577;4467;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ObjectFileName>debug\</ObjectFileName>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+    <MultiProcessorCompilation>true</MultiProcessorCompilation></ClCompile>
+    <Link>
+      <AdditionalDependencies>shell32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\opensslx86\lib;C:\Utils\my_sql\mysql-5.6.11-win32\lib;C:\Utils\postgresqlx86\pgsql\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>"/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'" %(AdditionalOptions)</AdditionalOptions>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <OutputFile>$(OutDir)\wearable.exe</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SubSystem>Windows</SubSystem>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;QT_QUICKCONTROLS2_LIB;QT_QUICK_LIB;QT_GUI_LIB;QT_QML_LIB;QT_NETWORK_LIB;QT_CORE_LIB;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  <QtRcc><InitFuncName>wearable</InitFuncName><Compression>default</Compression><ExecutionDescription>Rcc'ing %(Identity)...</ExecutionDescription><QtRccDir>$(Configuration)</QtRccDir><QtRccFileName>qrc_%(Filename).cpp</QtRccFileName></QtRcc></ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="wearable.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="debug\moc_predefs.h.cbt">
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\mkspecs\features\data\dummy.cpp;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cl -Bx"$(QTDIR)\bin\qmake.exe" -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus -Zi -MDd -W3 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 -wd4577 -wd4467 -E $(QTDIR)\mkspecs\features\data\dummy.cpp 2&gt;NUL &gt;debug\moc_predefs.h</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generate moc_predefs.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">debug\moc_predefs.h;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="release\moc_predefs.h.cbt">
+      <FileType>Document</FileType>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\mkspecs\features\data\dummy.cpp;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cl -Bx"$(QTDIR)\bin\qmake.exe" -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus -O2 -MD -W3 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 -wd4577 -wd4467 -E $(QTDIR)\mkspecs\features\data\dummy.cpp 2&gt;NUL &gt;release\moc_predefs.h</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generate moc_predefs.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">release\moc_predefs.h;%(Outputs)</Outputs>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    
+    
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="qml\WorldClock\Clock.qml" />
+    <None Include="qml\DemoMode.qml" />
+    <None Include="qml\DemoModeIndicator.qml" />
+    <None Include="qml\Diametr\DiametrPage.qml" />
+    <None Include="qml\Fitness\FitnessPage.qml" />
+    <None Include="qml\LauncherPage.qml" />
+    <None Include="qml\NaviButton.qml" />
+    <None Include="qml\Navigation\NavigationPage.qml" />
+    <None Include="qml\Notifications\NotificationsPage.qml" />
+    <None Include="qml\Style\PageIndicator.qml" />
+    <None Include="qml\Navigation\RouteElement.qml" />
+    <None Include="qml\Settings\SettingsPage.qml" />
+    <None Include="qml\Style\Slider.qml" />
+    <None Include="qml\SwipeViewPage.qml" />
+    <None Include="qml\Style\Switch.qml" />
+    <None Include="qml\Style\UIStyle.qml" />
+    <None Include="qml\Weather\WeatherPage.qml" />
+    <None Include="qml\WorldClock\WorldClockPage.qml" />
+    <None Include="qml\Notifications\images\avatarf-dark.png" />
+    <None Include="qml\Notifications\images\avatarf-dark@2x.png" />
+    <None Include="qml\Notifications\images\avatarf-light.png" />
+    <None Include="qml\Notifications\images\avatarf-light@2x.png" />
+    <None Include="qml\Notifications\images\avatarm-dark.png" />
+    <None Include="qml\Notifications\images\avatarm-dark@2x.png" />
+    <None Include="qml\Notifications\images\avatarm-light.png" />
+    <None Include="qml\Notifications\images\avatarm-light@2x.png" />
+    <None Include="images\back.png" />
+    <None Include="images\back@2x.png" />
+    <None Include="images\background-dark.png" />
+    <None Include="images\background-light.png" />
+    <None Include="qml\Settings\images\bluetooth-dark.png" />
+    <None Include="qml\Settings\images\bluetooth-dark@2x.png" />
+    <None Include="qml\Settings\images\bluetooth-light.png" />
+    <None Include="qml\Settings\images\bluetooth-light@2x.png" />
+    <None Include="qml\Settings\images\brightness-dark.png" />
+    <None Include="qml\Settings\images\brightness-dark@2x.png" />
+    <None Include="qml\Settings\images\brightness-light.png" />
+    <None Include="qml\Settings\images\brightness-light@2x.png" />
+    <None Include="qml\WorldClock\images\center.png" />
+    <None Include="qml\WorldClock\images\center@2x.png" />
+    <None Include="qml\Settings\images\demo-mode-dark.png" />
+    <None Include="qml\Settings\images\demo-mode-dark@2x.png" />
+    <None Include="qml\Settings\images\demo-mode-light.png" />
+    <None Include="qml\Settings\images\demo-mode-light@2x.png" />
+    <None Include="qml\Settings\images\demo-mode-white.png" />
+    <None Include="qml\Settings\images\demo-mode-white@2x.png" />
+    <None Include="icons\wearable\36x36@2\diametr.png" />
+    <None Include="icons\wearable\36x36\diametr.png" />
+    <None Include="qml\Navigation\images\end.png" />
+    <None Include="qml\Navigation\images\end@2x.png" />
+    <None Include="qml\Fitness\fitness.js" />
+    <None Include="icons\wearable\36x36@2\fitness.png" />
+    <None Include="icons\wearable\36x36\fitness.png" />
+    <None Include="images\home.png" />
+    <None Include="images\home@2x.png" />
+    <None Include="qml\Weather\images\humidity-dark.png" />
+    <None Include="qml\Weather\images\humidity-dark@2x.png" />
+    <None Include="qml\Weather\images\humidity-light.png" />
+    <None Include="qml\Weather\images\humidity-light@2x.png" />
+    <None Include="icons\wearable\index.theme" />
+    <None Include="qml\Navigation\images\leftturn-dark.png" />
+    <None Include="qml\Navigation\images\leftturn-dark@2x.png" />
+    <None Include="qml\Navigation\images\leftturn-light.png" />
+    <None Include="qml\Navigation\images\leftturn-light@2x.png" />
+    <None Include="qml\Fitness\images\man-running-dark.png" />
+    <None Include="qml\Fitness\images\man-running-dark@2x.png" />
+    <None Include="qml\Fitness\images\man-running-light.png" />
+    <None Include="qml\Fitness\images\man-running-light@2x.png" />
+    <None Include="qml\Fitness\images\man-walking-dark.png" />
+    <None Include="qml\Fitness\images\man-walking-dark@2x.png" />
+    <None Include="qml\Fitness\images\man-walking-light.png" />
+    <None Include="qml\Fitness\images\man-walking-light@2x.png" />
+    <None Include="qml\Notifications\images\missedcall-dark.png" />
+    <None Include="qml\Notifications\images\missedcall-dark@2x.png" />
+    <None Include="qml\Notifications\images\missedcall-light.png" />
+    <None Include="qml\Notifications\images\missedcall-light@2x.png" />
+    <None Include="qml\Navigation\images\navigation-dark.png" />
+    <None Include="qml\Navigation\images\navigation-dark@2x.png" />
+    <None Include="qml\Navigation\images\navigation-light.png" />
+    <None Include="qml\Navigation\images\navigation-light@2x.png" />
+    <None Include="qml\Navigation\navigation.js" />
+    <None Include="icons\wearable\36x36@2\navigation.png" />
+    <None Include="icons\wearable\36x36\navigation.png" />
+    <None Include="qml\Notifications\notifications.js" />
+    <None Include="icons\wearable\36x36@2\notifications.png" />
+    <None Include="icons\wearable\36x36\notifications.png" />
+    <None Include="qml\Weather\images\pressure-dark.png" />
+    <None Include="qml\Weather\images\pressure-dark@2x.png" />
+    <None Include="qml\Weather\images\pressure-light.png" />
+    <None Include="qml\Weather\images\pressure-light@2x.png" />
+    <None Include="qml\Style\qmldir" />
+    <None Include="qml\Navigation\images\rightturn-dark.png" />
+    <None Include="qml\Navigation\images\rightturn-dark@2x.png" />
+    <None Include="qml\Navigation\images\rightturn-light.png" />
+    <None Include="qml\Navigation\images\rightturn-light@2x.png" />
+    <None Include="qml\WorldClock\images\second.png" />
+    <None Include="qml\WorldClock\images\second@2x.png" />
+    <None Include="icons\wearable\36x36@2\settings.png" />
+    <None Include="icons\wearable\36x36\settings.png" />
+    <None Include="qml\Navigation\images\start.png" />
+    <None Include="qml\Navigation\images\start@2x.png" />
+    <None Include="qml\Navigation\images\straight-dark.png" />
+    <None Include="qml\Navigation\images\straight-dark@2x.png" />
+    <None Include="qml\Navigation\images\straight-light.png" />
+    <None Include="qml\Navigation\images\straight-light@2x.png" />
+    <None Include="qml\Weather\images\sunrise-dark.png" />
+    <None Include="qml\Weather\images\sunrise-dark@2x.png" />
+    <None Include="qml\Weather\images\sunrise-light.png" />
+    <None Include="qml\Weather\images\sunrise-light@2x.png" />
+    <None Include="qml\Weather\images\sunset-dark.png" />
+    <None Include="qml\Weather\images\sunset-dark@2x.png" />
+    <None Include="qml\Weather\images\sunset-light.png" />
+    <None Include="qml\Weather\images\sunset-light@2x.png" />
+    <None Include="qml\WorldClock\images\swissdaydial.png" />
+    <None Include="qml\WorldClock\images\swissdaydial@2x.png" />
+    <None Include="qml\WorldClock\images\swissdayhour.png" />
+    <None Include="qml\WorldClock\images\swissdayhour@2x.png" />
+    <None Include="qml\WorldClock\images\swissdayminute.png" />
+    <None Include="qml\WorldClock\images\swissdayminute@2x.png" />
+    <None Include="qml\WorldClock\images\swissnightdial.png" />
+    <None Include="qml\WorldClock\images\swissnightdial@2x.png" />
+    <None Include="qml\WorldClock\images\swissnighthour.png" />
+    <None Include="qml\WorldClock\images\swissnighthour@2x.png" />
+    <None Include="qml\WorldClock\images\swissnightminute.png" />
+    <None Include="qml\WorldClock\images\swissnightminute@2x.png" />
+    <None Include="qml\Weather\images\temperature-dark.png" />
+    <None Include="qml\Weather\images\temperature-dark@2x.png" />
+    <None Include="qml\Weather\images\temperature-light.png" />
+    <None Include="qml\Weather\images\temperature-light@2x.png" />
+    <None Include="qml\Settings\images\theme-dark.png" />
+    <None Include="qml\Settings\images\theme-dark@2x.png" />
+    <None Include="qml\Settings\images\theme-light.png" />
+    <None Include="qml\Settings\images\theme-light@2x.png" />
+    <None Include="qml\Navigation\images\uturn.png" />
+    <None Include="qml\Navigation\images\uturn@2x.png" />
+    <None Include="qml\Navigation\walk_route.json" />
+    <None Include="wearable.qml" />
+    <QtRcc Include="wearable.qrc">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </QtRcc>
+    <None Include="qml\Weather\weather.json" />
+    <None Include="qml\Weather\weather.js" />
+    <None Include="icons\wearable\36x36@2\weather.png" />
+    <None Include="icons\wearable\36x36\weather.png" />
+    <None Include="qml\Settings\images\wifi-dark.png" />
+    <None Include="qml\Settings\images\wifi-dark@2x.png" />
+    <None Include="qml\Settings\images\wifi-light.png" />
+    <None Include="qml\Settings\images\wifi-light@2x.png" />
+    <None Include="qml\Weather\images\wind-dark.png" />
+    <None Include="qml\Weather\images\wind-dark@2x.png" />
+    <None Include="qml\Weather\images\wind-light.png" />
+    <None Include="qml\Weather\images\wind-light@2x.png" />
+    <None Include="icons\wearable\36x36@2\worldclock.png" />
+    <None Include="icons\wearable\36x36\worldclock.png" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" /><ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')"><Import Project="$(QtMsBuild)\qt.targets" /></ImportGroup>
+  <ImportGroup Label="ExtensionTargets" />
+</Project>
