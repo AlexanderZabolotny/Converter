@@ -72,23 +72,23 @@ PathView {
         }
         ListElement {
             title: qsTr("Из Круглой")
-            icon: "navigation"
-            page: "Navigation/NavigationPage.qml"
+            icon: "fromCircle"
+            page: "FromCircle/FromCirclePage.qml"
         }
         ListElement {
             title: qsTr("Пектин")
-            icon: "weather"
-            page: "Weather/WeatherPage.qml"
+            icon: "pectin"
+            page: "Pectin/PectinPage.qml"
         }
         ListElement {
             title: qsTr("Из Квадратной")
-            icon: "fitness"
-            page: "Fitness/FitnessPage.qml"
+            icon: "fromQuadro"
+            page: "FromQuadro/FromQuadroPage.qml"
         }
         ListElement {
             title: qsTr("Желатин")
-            icon: "notifications"
-            page: "Notifications/NotificationsPage.qml"
+            icon: "gelatin"
+            page: "Gelatin/GelatinPage.qml"
         }
         ListElement {
             title: qsTr("Диаметр")

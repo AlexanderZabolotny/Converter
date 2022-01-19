@@ -12,9 +12,11 @@ Item {
     property alias ingredientTotal: total.text
     property alias ingredientUnit: unit.text
 
-    width: rl.implicitWidth
-    height: rl.implicitHeight
 
+    //width: rl.implicitWidth
+    //height: rl.implicitHeight
+    //width: parent.width
+    //height: parent.height
     RowLayout {
         id: rl
         Text {
@@ -22,10 +24,10 @@ Item {
             color: "white"
             text: "asdf"
             font.family: "Ubuntu"
-            font.pixelSize: 20
+            font.pointSize: Math.min(window.width,window.height)/25
         }
         Rectangle{
-            width: 80
+            width: ingredient.width / 5
             height: 20
             radius: 45
         TextInput  {
@@ -34,11 +36,11 @@ Item {
             height: 20
             //placeholderText: "Наименование"
             font.family: "Ubuntu"
-            font.pixelSize: 20
+            font.pointSize: Math.min(window.width,window.height)/25
         }
         }
         Rectangle {
-            width: 50
+            width: ingredient.width / 5
             height: 20
             radius: 45
         TextInput  {
@@ -46,11 +48,11 @@ Item {
             width: 50
             height: 20
             font.family: "Ubuntu"
-            font.pixelSize: 20
+            font.pointSize: Math.min(window.width,window.height)/25
             }
         }
         Rectangle {
-            width: 50
+            width: ingredient.width / 5
             height: 20
             radius: 45
         TextInput  {
@@ -58,33 +60,33 @@ Item {
             width: 50
             height: 20
             font.family: "Ubuntu"
-            font.pixelSize: 20
+            font.pointSize: Math.min(window.width,window.height)/25
             }
         }
         Rectangle {//прямоугольник с закругленными углами
                  id: roundRect
                  radius: 45
                  color: "#827676"
-                 width: 60
+                 width: ingredient.width / 5
                  height: 20
                  Text {
                      id: total
                      font.family: "Ubuntu"
-                     font.pixelSize: 16
+                     font.pointSize: Math.min(window.width,window.height)/25
                      text: ""
                      anchors.verticalCenter: parent.verticalCenter
                      anchors.horizontalCenter: parent.horizontalCenter
                  }
                }
         Rectangle {
-            width: 20
+            width: ingredient.width / 5
             height: 20
             radius: 45
             color: "white"
             Text {
                 id: unit
                 font.family: "Ubuntu"
-                font.pixelSize: 16
+                font.pointSize: Math.min(window.width,window.height)/25
                 text: "unit"
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.horizontalCenter: parent.horizontalCenter

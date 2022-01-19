@@ -126,7 +126,7 @@ Item {
         // Open the fitness page.
         ScriptAction { script: stackView.currentItem.incrementCurrentIndex() }
         PauseAnimation { duration: 1000 }
-        ScriptAction { script: stackView.currentItem.launched(Qt.resolvedUrl("Fitness/FitnessPage.qml")) }
+        ScriptAction { script: stackView.currentItem.launched(Qt.resolvedUrl("FromQuadro/FromQuadroPage.qml")) }
         PauseAnimation { duration: 2000 }
 
         // Swipe across a few times.

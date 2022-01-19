@@ -48,18 +48,11 @@
 **
 ****************************************************************************/
 
-function getSteps() {
-    return 105;
-}
+import QtQuick 2.12
+import QtQuick.Controls 2.3 as QQC2
+import "../Style"
 
-function getCalories() {
-    return 150;
-}
+Item {
+    id: gelatin
 
-function getDistance() {
-    return 10;
-}
-
-function getTime() {
-    return "00:30";
 }

@@ -49,47 +49,9 @@
 ****************************************************************************/
 
 import QtQuick 2.12
+import QtQuick.Controls 2.3 as QQC2
+import ".."
 import "../Style"
 
-Rectangle {
-    color: UIStyle.themeColorQtGray8
-
-    Row {
-        spacing: 5
-        width: parent.width - 80
-        anchors.centerIn: parent
-
-        Image {
-            id: img
-            anchors.verticalCenter: parent.verticalCenter
-            source: navImage
-            fillMode: Image.PreserveAspectFit
-        }
-
-        Column {
-            spacing: 5
-            width: parent.width - img.width
-            anchors.verticalCenter: parent.verticalCenter
-
-            Text {
-                width: parent.width
-                wrapMode: Text.WordWrap
-                text: navInstruction
-                font.pixelSize: UIStyle.fontSizeS
-                verticalAlignment: Text.AlignVCenter
-                padding: 1
-                color: UIStyle.themeColorQtGray1
-            }
-
-            Text {
-                width: parent.width
-                wrapMode: Text.WordWrap
-                text: navAuxInfo
-                font.pixelSize: UIStyle.fontSizeXS
-                verticalAlignment: Text.AlignVCenter
-                padding: 1
-                color: UIStyle.themeColorQtGray2
-            }
-        }
-    }
+Item {
 }

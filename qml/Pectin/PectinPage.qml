@@ -52,80 +52,8 @@ import QtQuick 2.12
 import QtQuick.Controls 2.3 as QQC2
 import ".."
 import "../Style"
-import "fitness.js" as FitnessData
 
 Item {
-    QQC2.SwipeView {
-        id: svFitnessContainer
+    id: pectin
 
-        anchors.fill: parent
-
-        SwipeViewPage {
-            id: fitnessPage1
-
-            Column {
-                anchors.centerIn: parent
-                spacing: 15
-
-                Text {
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    text: qsTr("Steps: ") + FitnessData.getSteps()
-                    font.italic: true
-                    font.pixelSize: UIStyle.fontSizeM
-                    color: UIStyle.themeColorQtGray1
-                }
-                Image {
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    source: UIStyle.themeImagePath("images/man-walking")
-                }
-                Text {
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    text: qsTr("Calories: ") + FitnessData.getCalories()
-                    font.pixelSize: UIStyle.fontSizeS
-                    font.italic: true
-                    color: UIStyle.themeColorQtGray3
-                }
-            }
-        }
-
-        SwipeViewPage {
-            id: fitnessPage2
-
-            Column {
-                anchors.centerIn: parent
-                spacing: 15
-
-                Text {
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    text: qsTr("Distance: ")
-                          + FitnessData.getDistance()
-                          + qsTr(" miles")
-                    font.italic: true
-                    font.pixelSize: UIStyle.fontSizeM
-                    color: UIStyle.themeColorQtGray1
-                }
-                Image {
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    source: UIStyle.themeImagePath("images/man-running")
-                }
-                Text {
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    text: qsTr("Time: ")
-                          + FitnessData.getTime()
-                          + qsTr(" mins")
-                    font.pixelSize: UIStyle.fontSizeS
-                    font.italic: true
-                    color: UIStyle.themeColorQtGray3
-                }
-            }
-        }
-    }
-
-    QQC2.PageIndicator {
-        count: svFitnessContainer.count
-        currentIndex: svFitnessContainer.currentIndex
-
-        anchors.bottom: svFitnessContainer.bottom
-        anchors.horizontalCenter: parent.horizontalCenter
-    }
 }

@@ -116,40 +116,68 @@ Item {
     property int number_of_button: 0
 id:window
 anchors.fill: parent
-    Row {
-        id: row
-        spacing: 5
-        anchors.top: window.top
-//        anchors.left: window.left
-//        anchors.right: window.right
 
-        //width: window.width
-        anchors.horizontalCenter: parent.horizontalCenter
-        Layout.alignment: Qt.AlignHCenter
 
+ColumnLayout
+{   id: row
+    spacing: 10
+    anchors.top: window.top
+    //height: window.height
+    width: window.width
+    //width: parent.width
+    //        height: implicitHeight
+    //        RowLayout {
+    //            anchors.top: parent.top
+    //            anchors.left: parent.left
+    //            anchors.right: parent.right
+    RowLayout {
+//        anchors.top: parent.top
+//        anchors.left: parent.left
+//        anchors.right: parent.right
+////        anchors.left: window.left
+////        anchors.right: window.right
+
+//        //width: window.width
+//        anchors.horizontalCenter: parent.horizontalCenter
+//        Layout.alignment: Qt.AlignHCenter
+        anchors.fill: parent
+        width: row.width
+            spacing: 5
                 Text {
-                    color: "black"
+                    id: first
+                    color: UIStyle.themeColorQtGray1
                     text: "Название\nпродукта"
                     font.family: "Ubuntu"
                     font.pointSize: Math.min(window.width,window.height)/25
+                    anchors.left: parent.left
+                    anchors.leftMargin: 10
                 }
                 Text {
-                    color: "black"
+                    id: second
+                    color: UIStyle.themeColorQtGray1
                     text: "Масса в\nграммах"
                     font.family: "Ubuntu"
                     font.pointSize: Math.min(window.width,window.height)/25
+                    anchors.left: first.right
+                    anchors.leftMargin: 5
                 }
                 Text {
-                    color: "black"
+                    id: third
+                    color: UIStyle.themeColorQtGray1
                     text: "Цена за\nкилограмм"
                     font.family: "Ubuntu"
                     font.pointSize: Math.min(window.width,window.height)/25
+                    anchors.left: second.right
+                    anchors.leftMargin: 5
                 }
                 Text {
-                    color: "black"
+                    id: forth
+                    color: UIStyle.themeColorQtGray1
                     text: "Итого"
                     font.family: "Ubuntu"
                     font.pointSize: Math.min(window.width,window.height)/25
+                    anchors.left: third.right
+                    anchors.leftMargin: 5
                 }
   //}
     // Строка с полем где отображается индекс нажатой кнопки
@@ -179,9 +207,15 @@ anchors.fill: parent
       Button {
           id: button_Creation
           text: qsTr("+")
-          width: (parent.width / 10)//40
-          height: 40
-
+          //width: (parent.width / 10)//40
+          //height: 40
+          Layout.fillWidth: true
+                  Layout.minimumWidth: 40
+                  Layout.maximumWidth: 40
+                  Layout.preferredWidth: 40
+                  Layout.preferredHeight: 40
+                  anchors.left: forth.right
+                  anchors.leftMargin: 5
           // По клику на эту кнопку
           // в модель
           // добавляется объект
@@ -195,9 +229,15 @@ anchors.fill: parent
       Button {
           id: button_Deletion
           text: qsTr("-")
-          width: (parent.width / 10)//40
-          height: 40
-
+          //width: (parent.width / 10)//40
+          //height: 40
+          Layout.fillWidth: true
+                  Layout.minimumWidth: 40
+                  Layout.maximumWidth: 40
+                  Layout.preferredWidth: 40
+                  Layout.preferredHeight: 40
+                  anchors.left: button_Creation.right
+                  anchors.leftMargin: 5
           // Удаляем кнопку по её индексу в ListView
           onClicked: {
               //if(textField_For_Button_Id.text != "Button " + number_of_button)
@@ -210,7 +250,7 @@ anchors.fill: parent
 
   }
 
-
+}
        // Наша модель, которая используется и для ListView
        // и для qml flow type
        ListModel {
@@ -222,6 +262,7 @@ anchors.fill: parent
            id: listView_id
            model: model_id // Модель прописана тут!
            anchors.top: row.bottom
+           anchors.topMargin: 5
            anchors.bottom: parent.bottom
            anchors.left: parent.left
            anchors.right: parent.right
@@ -241,11 +282,92 @@ anchors.fill: parent
                anchors.left: parent.left
                anchors.right: parent.right
                height: 40
-
-               Ingredient{
-                               Layout.alignment: Qt.AlignHCenter
-                               ingredientText: property_Text_Of_New_Number; ingredientName: ; ingredientWeight: ;ingredientTotal : ;ingredientUnit: "rub"
+               RowLayout {
+                   id: rl
+                   Text {
+                       id: qualifier
+                       color: UIStyle.themeColorQtGray1
+                       text: property_Text_Of_New_Number
+                       font.family: "Ubuntu"
+                       font.pointSize: Math.min(window.width,window.height)/25
+                   }
+                   Rectangle{
+                       width: first.width-10
+                       height: 20
+                       radius: 45
+                   TextInput  {
+                       id: textInput
+                       width: 80
+                       height: 20
+                       //placeholderText: "Наименование"
+                       color: "black"
+                       font.family: "Ubuntu"
+                       font.pointSize: Math.min(window.width,window.height)/25
+                   }
+                   }
+                   Rectangle {
+                       width: second.width
+                       height: 20
+                       radius: 45
+                   TextInput  {
+                       id: amountWeight
+                       width: 50
+                       height: 20
+                       color: "black"
+                       font.family: "Ubuntu"
+                       font.pointSize: Math.min(window.width,window.height)/25
+                       }
+                   }
+                   Rectangle {
+                       width: third.width
+                       height: 20
+                       radius: 45
+                   TextInput  {
+                       id: amountPrice
+                       width: 50
+                       height: 20
+                       color: "black"
+                       font.family: "Ubuntu"
+                       font.pointSize: Math.min(window.width,window.height)/25
+                       }
+                   }
+                   Rectangle {//прямоугольник с закругленными углами
+                            id: roundRect
+                            radius: 45
+                            color: "#827676"
+                            width: forth.width
+                            height: 20
+                            Text {
+                                id: total
+                                color: "black"
+                                font.family: "Ubuntu"
+                                font.pointSize: Math.min(window.width,window.height)/25
+                                text: ""
+                                anchors.verticalCenter: parent.verticalCenter
+                                anchors.horizontalCenter: parent.horizontalCenter
+                            }
+                          }
+                   Rectangle {
+                       width: first.width-10
+                       height: 20
+                       radius: 45
+                       color: "white"
+                       Text {
+                           id: unit
+                           color: "black"
+                           font.family: "Ubuntu"
+                           font.pointSize: Math.min(window.width,window.height)/25
+                           text: "rub"
+                           anchors.verticalCenter: parent.verticalCenter
+                           anchors.horizontalCenter: parent.horizontalCenter
+                       }
+                   }
                }
+//               Ingredient{
+//                               Layout.alignment: Qt.AlignHCenter
+//                               width: item_id.width
+//                               ingredientText: property_Text_Of_New_Number; ingredientName: ; ingredientWeight: ;ingredientTotal : ;ingredientUnit: "rub"
+//               }
            }
        }
 //       Rectangle {

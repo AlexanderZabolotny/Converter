@@ -57,8 +57,8 @@ import "qml/Style"
 QQC2.ApplicationWindow {
     id: window
     visible: true
-    width: 640
-    height: 480
+    width: 480
+    height: 640
     title: qsTr("Baker's converter")
 
     Settings {
