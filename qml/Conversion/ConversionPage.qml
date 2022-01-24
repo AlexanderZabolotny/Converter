@@ -266,7 +266,7 @@ ColumnLayout
            anchors.bottom: parent.bottom
            anchors.left: parent.left
            anchors.right: parent.right
-
+           spacing: 5
            // Можно было прописать Item тут.
            // Вынесли в component и ссылаемся на его id.
            delegate: component_id
@@ -293,12 +293,12 @@ ColumnLayout
                    }
                    Rectangle{
                        width: first.width-10
-                       height: 20
+                       height: 40
                        radius: 45
                    TextInput  {
                        id: textInput
                        width: 80
-                       height: 20
+                       height: 40
                        //placeholderText: "Наименование"
                        color: "black"
                        font.family: "Ubuntu"
@@ -307,12 +307,12 @@ ColumnLayout
                    }
                    Rectangle {
                        width: second.width
-                       height: 20
+                       height: 40
                        radius: 45
                    TextInput  {
                        id: amountWeight
                        width: 50
-                       height: 20
+                       height: 40
                        color: "black"
                        font.family: "Ubuntu"
                        font.pointSize: Math.min(window.width,window.height)/25
@@ -320,12 +320,12 @@ ColumnLayout
                    }
                    Rectangle {
                        width: third.width
-                       height: 20
+                       height: 40
                        radius: 45
                    TextInput  {
                        id: amountPrice
                        width: 50
-                       height: 20
+                       height: 40
                        color: "black"
                        font.family: "Ubuntu"
                        font.pointSize: Math.min(window.width,window.height)/25
@@ -336,7 +336,7 @@ ColumnLayout
                             radius: 45
                             color: "#827676"
                             width: forth.width
-                            height: 20
+                            height: 40
                             Text {
                                 id: total
                                 color: "black"
@@ -349,7 +349,7 @@ ColumnLayout
                           }
                    Rectangle {
                        width: first.width-10
-                       height: 20
+                       height: 40
                        radius: 45
                        color: "white"
                        Text {
