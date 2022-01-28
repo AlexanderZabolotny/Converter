@@ -63,5 +63,7 @@
         <file>qml/DemoModeIndicator.qml</file>
         <file>qml/Conversion/Ingredient.qml</file>
         <file>qml/Conversion/Component.qml</file>
+        <file>images/list-delete.png</file>
+        <file>qml/Style/TextButton.qml</file>
     </qresource>
 </RCC>

@@ -49,93 +49,38 @@
 ****************************************************************************/
 
 import QtQuick 2.0
-import QtQuick.Controls 2.3 as QQC2
-import Qt.labs.settings 1.0
-import "qml"
-import "qml/Style"
 
-QQC2.ApplicationWindow {
-    id: window
-    visible: true
-    width: 480
-    height: 640
-    title: qsTr("Baker's converter")
+Rectangle {
+    id: container
 
-    Settings {
-        id: settings
-        property bool wireless
-        property bool bluetooth
-        property int brightness
-        property bool darkTheme
-        property bool demoMode
-    }
+    property alias text: label.text
 
-    Binding {
-        target: UIStyle
-        property: "darkTheme"
-        value: settings.darkTheme
-    }
+    signal clicked
 
-    // We need the settings object both here and in SettingsPage,
-    // so for convenience, we declare it as a property of the root object so that
-    // it will be available to all of the QML files that we load.
-    property alias settings: settings
+    width: label.width + 20; height: label.height + 6
+    antialiasing: true
+    radius: 10
 
-    background: Image {
-        source: "images/background-" + (settings.darkTheme ? "dark" : "light") + ".png"
-    }
-
-    header: NaviButton {
-        id: homeButton
-
-        edge: Qt.TopEdge
-        enabled: stackView.depth > 1
-        imageSource: "images/home.png"
-
-        onClicked: stackView.pop(null)
-    }
-
-    footer: NaviButton {
-        id: backButton
-
-        edge: Qt.BottomEdge
-        enabled: stackView.depth > 1
-        imageSource: "images/back.png"
-
-        onClicked: stackView.pop()
-    }
-
-    QQC2.StackView {
-        id: stackView
-
-
-        focus: true
-        anchors.fill: parent
-
-        initialItem: LauncherPage {
-            onLaunched: stackView.push(page)
-        }
-    }
-
-    DemoMode {
-        stackView: stackView
-    }
-
-    DemoModeIndicator {
-        id: demoModeIndicator
-        y: settings.demoMode ? -height : -height * 2
-        anchors.horizontalCenter: parent.horizontalCenter
-        height: header.height
-        z: window.header.z + 1
+    gradient: Gradient {
+        GradientStop { id: gradientStop; position: 0.0; color: "#eeeeee" }
+        GradientStop { position: 1.0; color: "#888888" }
     }
 
     MouseArea {
-        enabled: settings.demoMode
+        id: mouseArea
         anchors.fill: parent
-        onClicked: {
-            // Stop demo mode and return to the launcher page.
-            settings.demoMode = false
-            stackView.pop(null)
-        }
+        onClicked: { container.clicked() }
+    }
+
+    Text {
+        id: label
+        anchors.centerIn: parent
+    }
+
+    states: State {
+        name: "pressed"
+        when: mouseArea.pressed
+        PropertyChanges { target: gradientStop; color: "#333333" }
     }
 }
+
