@@ -51,13 +51,16 @@
 import QtQuick 2.12
 //import QtQuick.Controls 2.3 as QQC2
 import "../Style"
+
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
-
+import QtQuick.Window 2.0
 Item {
     id: container
     //width: parent.width; height: parent.height
     //color: "#343434"
+    property int dpi: Screen.pixelDensity * 25.4
+    property int dpu: Screen.pixelDensity * 25.4
     Item {
         height: 40
         anchors {
@@ -116,17 +119,17 @@ Item {
 }
 
 
-  }
+    }
     // The model:
     ListModel {
         id: conversionModel
 
-        ListElement {
-        }
-        ListElement {
-        }
-        ListElement {
-        }
+//        ListElement {
+//        }
+//        ListElement {
+//        }
+//        ListElement {
+//        }
 
     }
 
@@ -134,12 +137,16 @@ Item {
     Component {
         id: listDelegate
 //! [0]
+
         Item {
 //! [0]
             id: delegateItem
             width: listView.width; height: 80
             clip: true
-
+            property alias nameInput: textInput.text
+            property alias weight: amountWeight.text
+            property alias price: amountPrice.text
+            property alias totalprice: total.text
 
             Item {
                 id: itemDelegate
@@ -229,6 +236,10 @@ Item {
                                              text: ""
                                              anchors.verticalCenter: parent.verticalCenter
                                              anchors.horizontalCenter: parent.horizontalCenter
+                                             //width: container.width / 10
+                                             //elide: Text.ElideRight
+                                             //maximumLineCount : 1
+                                             //wrapMode: "WordWrap"
                                          }
                                        }
 
@@ -236,7 +247,7 @@ Item {
                     Image {
                         anchors.left: roundRect.right
                         anchors.leftMargin: 5
-                        source: "images/list-delete.png"
+                        source: "../../images/list-delete.png"
                         anchors.verticalCenter: row.verticalCenter
                         MouseArea { anchors.fill:parent; onClicked: conversionModel.remove(index) }
                     }
@@ -260,7 +271,17 @@ Item {
         }
 //! [1]
     }
+    function apply()
+    {
+        console.log("list.count=",listView.count)
+        for(var i=0;i<listView.count+1;i++) //очень странный +1, тк должен выходить за пределы размера. НО РАБОТАЕТ!!!
+        {
+            listView.contentItem.children[i].totalprice = ((listView.contentItem.children[i].weight / 1000) * listView.contentItem.children[i].price).toFixed(2)
 
+            console.log(listView.contentItem.children[i].totalprice)
+            console.log(listView.contentItem.children[i].name)
+        }
+    }
     // The view:
     ListView {
         id: listView
@@ -280,20 +301,22 @@ Item {
 
         TextButton {
             id: addbut
-            anchors.left: buttons.left
-            text: "Add an item"
+            anchors.left: buttons.left      
+            text: "Добавить строку"
             onClicked: {
-                conversionModel.append({
-                    "name": "Pizza Margarita",
-                    "cost": 5.95,
-                    "attributes": [{"description": "Cheese"}, {"description": "Tomato"}]
-                })
+                conversionModel.append({})
             }
         }
-
+        TextButton {
+            anchors.horizontalCenter: buttons.horizontalCenter
+            text: "Рассчитать"
+            color: UIStyle.colorQtGray2
+            onClicked: apply()
+        }
         TextButton {
             anchors.right: buttons.right
-            text: "Remove all items"
+            text: "Очистить"
+            color: UIStyle.colorQtGray2
             onClicked: conversionModel.clear()
         }
     }

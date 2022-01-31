@@ -62,8 +62,8 @@ Rectangle {
     radius: 10
 
     gradient: Gradient {
-        GradientStop { id: gradientStop; position: 0.0; color: "#eeeeee" }
-        GradientStop { position: 1.0; color: "#888888" }
+        GradientStop { id: gradientStop; position: 0.0; color: UIStyle.colorQtGray4 }
+        GradientStop { position: 1.0; color: UIStyle.colorQtGray3 }
     }
 
     MouseArea {
@@ -75,12 +75,13 @@ Rectangle {
     Text {
         id: label
         anchors.centerIn: parent
+        color: UIStyle.colorQtAuxGreen1
     }
 
     states: State {
         name: "pressed"
         when: mouseArea.pressed
-        PropertyChanges { target: gradientStop; color: "#333333" }
+        PropertyChanges { target: gradientStop; color: UIStyle.colorQtGray2 }
     }
 }
 
