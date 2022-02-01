@@ -55,12 +55,13 @@ import "../Style"
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import QtQuick.Window 2.0
+import QtGraphicalEffects 1.0
 Item {
     id: container
     //width: parent.width; height: parent.height
     //color: "#343434"
     property int dpi: Screen.pixelDensity * 25.4
-    property int dpu: Screen.pixelDensity * 25.4
+    //anchors.fill: parent   ???!!!
     Item {
         height: 40
         anchors {
@@ -223,7 +224,7 @@ Item {
                                 Rectangle {//прямоугольник с закругленными углами
                                          id: roundRect
                                          radius: 15
-                                         color: "#827676"
+                                         color: UIStyle.colorQtGray5
                                          width: container.width / 10
                                          height: 40
                                          anchors.left: amountPrice.right
@@ -245,12 +246,25 @@ Item {
 
 
                     Image {
+                        id : closebut
                         anchors.left: roundRect.right
                         anchors.leftMargin: 5
                         source: "../../images/list-delete.png"
                         anchors.verticalCenter: row.verticalCenter
                         MouseArea { anchors.fill:parent; onClicked: conversionModel.remove(index) }
                     }
+                    ColorOverlay {
+                            anchors.fill: closebut
+                            source: closebut
+                            color: UIStyle.colorQtAuxGreen1  // make image like it lays under xxx glass
+                        }
+//                    Colorize {
+//                            anchors.fill: closebut
+//                            source: closebut
+//                            hue: 0.4
+//                            saturation: 0.5
+//                            lightness: -0.2
+//                        }
                 }
             }
 
