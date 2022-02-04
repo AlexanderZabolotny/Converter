@@ -29,28 +29,10 @@
         <file>qml/FromCircle/FromCirclePage.qml</file>
         <file>qml/Gelatin/GelatinPage.qml</file>
         <file>qml/Settings/SettingsPage.qml</file>
-        <file>qml/Settings/images/bluetooth-light.png</file>
-        <file>qml/Settings/images/bluetooth-light@2x.png</file>
-        <file>qml/Settings/images/brightness-light.png</file>
-        <file>qml/Settings/images/brightness-light@2x.png</file>
-        <file>qml/Settings/images/demo-mode-light.png</file>
-        <file>qml/Settings/images/demo-mode-light@2x.png</file>
-        <file>qml/Settings/images/demo-mode-dark.png</file>
-        <file>qml/Settings/images/demo-mode-dark@2x.png</file>
-        <file>qml/Settings/images/demo-mode-white.png</file>
-        <file>qml/Settings/images/demo-mode-white@2x.png</file>
         <file>qml/Settings/images/theme-light.png</file>
         <file>qml/Settings/images/theme-light@2x.png</file>
-        <file>qml/Settings/images/wifi-light.png</file>
-        <file>qml/Settings/images/wifi-light@2x.png</file>
-        <file>qml/Settings/images/bluetooth-dark.png</file>
-        <file>qml/Settings/images/bluetooth-dark@2x.png</file>
-        <file>qml/Settings/images/brightness-dark.png</file>
-        <file>qml/Settings/images/brightness-dark@2x.png</file>
         <file>qml/Settings/images/theme-dark.png</file>
         <file>qml/Settings/images/theme-dark@2x.png</file>
-        <file>qml/Settings/images/wifi-dark.png</file>
-        <file>qml/Settings/images/wifi-dark@2x.png</file>
         <file>qml/Style/qmldir</file>
         <file>qml/Style/PageIndicator.qml</file>
         <file>qml/Style/Slider.qml</file>
@@ -65,5 +47,17 @@
         <file>qml/Conversion/Component.qml</file>
         <file>images/list-delete.png</file>
         <file>qml/Style/TextButton.qml</file>
+        <file>qml/Settings/images/demo-mode-dark.png</file>
+        <file>qml/Settings/images/demo-mode-dark@2x.png</file>
+        <file>qml/Settings/images/demo-mode-light.png</file>
+        <file>qml/Settings/images/demo-mode-light@2x.png</file>
+        <file>qml/Settings/images/demo-mode-white.png</file>
+        <file>qml/Settings/images/demo-mode-white@2x.png</file>
+        <file>qml/Style/ComponentData.qml</file>
+        <file>qml/Style/ComponentProportions.qml</file>
+        <file>qml/Style/TextInputField.qml</file>
+        <file>qml/Style/Label.qml</file>
+        <file>images/about.png</file>
+        <file>qml/Style/ComponentSource.qml</file>
     </qresource>
 </RCC>

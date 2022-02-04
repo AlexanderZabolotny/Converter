@@ -76,6 +76,7 @@ Rectangle {
         id: label
         anchors.centerIn: parent
         color: UIStyle.colorQtAuxGreen1
+        font.family: "Ubuntu"
     }
 
     states: State {

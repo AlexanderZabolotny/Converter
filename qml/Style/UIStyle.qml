@@ -64,6 +64,15 @@ QtObject {
     readonly property int fontSizeXL: 35
     readonly property int fontSizeXXL: 40
 
+    // Margin Sizes
+    readonly property int marginSizeXXS: 5
+    readonly property int marginSizeXS: 10
+    readonly property int marginSizeS: 15
+    readonly property int marginSizeM: 20
+    readonly property int marginSizeL: 30
+    readonly property int marginSizeXL: 40
+    readonly property int marginSizeXXL: 50
+
     // Color Scheme
     // Green
     readonly property color colorQtPrimGreen: "#41cd52"
@@ -100,6 +109,8 @@ QtObject {
     readonly property color themeColorQtGray10: darkTheme ? colorQtGray1 : colorQtGray10
 
     property bool darkTheme: false
+
+    //readonly property font.family fontFamily: "Ubuntu"
 
     function themeImagePath(baseImagePath) {
         return baseImagePath + (darkTheme ? "-dark" : "-light") + ".png"

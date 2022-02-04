@@ -51,6 +51,7 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.3 as QQC2
 import Qt.labs.settings 1.0
+import QtQuick.Window 2.12
 import "qml"
 import "qml/Style"
 
@@ -61,11 +62,21 @@ QQC2.ApplicationWindow {
     height: 640
     title: qsTr("Baker's converter")
 
+    property int dpi: Screen.pixelDensity * 25.4
+
+        function dp(x){
+            if(dpi < 120) {
+                return x; // Для обычного монитора компьютера
+            } else {
+                return x*(dpi/160);
+            }
+        }
+
     Settings {
         id: settings
-        property bool wireless
-        property bool bluetooth
-        property int brightness
+        //property bool wireless
+        //property bool bluetooth
+        //property int brightness
         property bool darkTheme
         property bool demoMode
     }
@@ -82,7 +93,9 @@ QQC2.ApplicationWindow {
     property alias settings: settings
 
     background: Image {
+        anchors.fill: parent
         source: "images/background-" + (settings.darkTheme ? "dark" : "light") + ".png"
+        fillMode: Image.PreserveAspectCrop
     }
 
     header: NaviButton {

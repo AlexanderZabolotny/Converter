@@ -108,8 +108,8 @@ PathView {
 
         property string title: model.title
 
-        icon.width: 36
-        icon.height: 36
+        icon.width: 36*2
+        icon.height: 36*2
         icon.name: model.icon
         opacity: PathView.itemOpacity
         padding: 12

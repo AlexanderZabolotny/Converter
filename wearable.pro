@@ -3,6 +3,7 @@ TARGET = Converter
 QT += quick quickcontrols2
 
 SOURCES += \
+    cpp/data_item.cpp \
     wearable.cpp
 
 RESOURCES += \
@@ -24,3 +25,6 @@ contains(ANDROID_TARGET_ARCH,armeabi-v7a) {
     ANDROID_PACKAGE_SOURCE_DIR = \
         $$PWD/android
 }
+
+HEADERS += \
+    cpp/data_item.h

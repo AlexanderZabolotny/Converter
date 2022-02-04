@@ -1,3 +1,53 @@
+/****************************************************************************
+**
+** Copyright (C) 2017 The Qt Company Ltd.
+** Contact: https://www.qt.io/licensing/
+**
+** This file is part of the examples of the Qt Toolkit.
+**
+** $QT_BEGIN_LICENSE:BSD$
+** Commercial License Usage
+** Licensees holding valid commercial Qt licenses may use this file in
+** accordance with the commercial license agreement provided with the
+** Software or, alternatively, in accordance with the terms contained in
+** a written agreement between you and The Qt Company. For licensing terms
+** and conditions see https://www.qt.io/terms-conditions. For further
+** information use the contact form at https://www.qt.io/contact-us.
+**
+** BSD License Usage
+** Alternatively, you may use this file under the terms of the BSD license
+** as follows:
+**
+** "Redistribution and use in source and binary forms, with or without
+** modification, are permitted provided that the following conditions are
+** met:
+**   * Redistributions of source code must retain the above copyright
+**     notice, this list of conditions and the following disclaimer.
+**   * Redistributions in binary form must reproduce the above copyright
+**     notice, this list of conditions and the following disclaimer in
+**     the documentation and/or other materials provided with the
+**     distribution.
+**   * Neither the name of The Qt Company Ltd nor the names of its
+**     contributors may be used to endorse or promote products derived
+**     from this software without specific prior written permission.
+**
+**
+** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+** "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE."
+**
+** $QT_END_LICENSE$
+**
+****************************************************************************/
+
 import QtQuick 2.12
 //import QtQuick.Controls 2.3 as QQC2
 import "../Style"
@@ -10,14 +60,14 @@ Item {
     id: container
     //width: parent.width; height: parent.height
     //color: "#343434"
+    property int dpi: Screen.pixelDensity * 25.4
     //anchors.fill: parent   ???!!!
-    property double temp : 0.0
     Item {
         height: 40
         anchors {
             left: container.left
             right: container.right
-            horizontalCenter: parent.horizontalCenter;
+            //horizontalCenter: parent.horizontalCenter;
             top: parent.top
             //bottom: parent.bottom
         }
@@ -40,9 +90,8 @@ Item {
                 Text {
                     id: second
                     color: UIStyle.themeColorQtGray1
-                    font.family: "Ubuntu"
                     text: "Масса в\nграммах"
-
+                    font.family: "Ubuntu"
                     //font.pointSize: 15
                     anchors.left: first.right
                     anchors.leftMargin: 10
@@ -76,8 +125,8 @@ Item {
     ListModel {
         id: conversionModel
 
-        ListElement {
-        }
+//        ListElement {
+//        }
 //        ListElement {
 //        }
 //        ListElement {
@@ -239,20 +288,13 @@ Item {
     function apply()
     {
         console.log("list.count=",listView.count)
-
         for(var i=0;i<listView.count+1;i++) //очень странный +1, тк должен выходить за пределы размера. НО РАБОТАЕТ!!!
         {
-
             listView.contentItem.children[i].totalprice = ((listView.contentItem.children[i].weight / 1000) * listView.contentItem.children[i].price).toFixed(2)
-            if(i!=1) //очень забавный if (без него temp после второй итерации превращается в NaN)
-                temp += parseFloat(listView.contentItem.children[i].totalprice)
+
             console.log(listView.contentItem.children[i].totalprice)
             console.log(listView.contentItem.children[i].name)
-            console.log("temp = ",temp)
-            //finalValue.text += listView.contentItem.children[i].totalprice
         }
-        finalValue.text = temp.toString()/*.toFixed(2)*/
-        temp = 0.0
     }
     // The view:
     ListView {
@@ -268,13 +310,13 @@ Item {
 
     Row {
         id: buttons
-        anchors { left: parent.left; right: parent.right; bottom: parent.bottom; margins: 20; bottomMargin: 40 }
+        anchors { left: parent.left; right: parent.right; bottom: parent.bottom; margins: 20; bottomMargin: 100 }
         spacing: 10
 
         TextButton {
             id: addbut
             anchors.left: buttons.left      
-            text: "Добавить"
+            text: "Добавить\nстроку"
             onClicked: {
                 conversionModel.append({})
             }
@@ -291,44 +333,5 @@ Item {
             color: UIStyle.colorQtGray2
             onClicked: conversionModel.clear()
         }
-    }
-    Item {
-        id: totalAll
-        anchors {
-            left: container.left; right: container.right;
-            //horizontalCenter: container.horizontalCenter;
-            bottom:  buttons.top
-            bottomMargin: 40
-        }
-        Label {
-        id : totl
-        anchors.left: totalAll.left
-        anchors.leftMargin: 20
-        anchors.verticalCenter: totalAll.verticalCenter
-        font.pointSize: 20
-        text: "Итого:"
-        }
-
-        Rectangle {//прямоугольник с закругленными углами
-                 id: roundRect
-                 radius: 15
-                 color: UIStyle.colorQtGray5
-                 width: 200
-                 height: 40
-                 anchors.horizontalCenter:  totalAll.horizontalCenter
-                 //anchors.rightMargin: 200
-                 anchors.verticalCenter: totalAll.verticalCenter
-                 Text {
-                     id: finalValue
-                     color: "black"
-                     font.family: "Ubuntu"
-                     font.pointSize: 20
-                     text: ""
-                     anchors.verticalCenter: parent.verticalCenter
-                     anchors.horizontalCenter: parent.horizontalCenter
-
-                 }
-               }
-
     }
 }
