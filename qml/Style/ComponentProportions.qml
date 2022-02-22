@@ -8,11 +8,15 @@ Item {
     id: proportions
 
     property alias about: textAbout.text
-    property alias intialText1: inputName.text
+    property alias initialText1: inputName.text
     property alias outputText1: outputName.text
 
-    property alias intialText2: inputName2.text
+    property alias initialText2: inputName2.text
     property alias outputText2: outputName2.text
+
+    property alias oldSize: inputSize.text
+    property alias newSize: newSize.text
+
     width: parent.width
     height: 200
 

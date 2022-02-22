@@ -2,6 +2,7 @@ import QtQuick 2.12
 import QtQuick.Controls 2.3 as QQC2
 import ".."
 import "../Style"
+import QtGraphicalEffects 1.0
 Item{
     id:quadro
     //anchors.fill: parent
@@ -83,6 +84,20 @@ Item{
                     bottomMargin: 10
                 }
 
+                Image {
+                    id : closebut
+                    anchors.right: parent.right
+                    anchors.rightMargin: 5
+                    source: "../../images/list-delete.png"
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.verticalCenterOffset: 5
+                    MouseArea { anchors.fill:parent; onClicked: quadroModel.remove(index) }
+                }
+                ColorOverlay {
+                    anchors.fill: closebut
+                    source: closebut
+                    color: UIStyle.colorQtAuxGreen1  // make image like it lays under xxx glass
+                }
         }
 
             // Animate adding and removing of items:
@@ -167,10 +182,10 @@ Item{
             bottomMargin: 10
         }
         about: "Размеры"
-        intialText1: "Сторона\nквадратной формы"
+        initialText1: "Сторона\nквадратной формы"
         outputText1: "Радиус\nкруглой формы"
 
-        intialText2: "Исходные"
+        initialText2: "Исходные"
         outputText2: "Новые"
     }
 }

@@ -89,6 +89,7 @@ Item {
             anchors.rightMargin: 5
             source: "../../images/list-delete.png"
             anchors.verticalCenter: parent.verticalCenter
+            anchors.verticalCenterOffset: 5
             MouseArea { anchors.fill:parent; onClicked: conversionModel.remove(index) }
         }
         ColorOverlay {

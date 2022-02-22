@@ -2,9 +2,13 @@ import QtQuick 2.12
 import QtQuick.Controls 2.3 as QQC2
 import ".."
 import "../Style"
+import QtGraphicalEffects 1.0
 Item{
     id:diametr
     //anchors.fill: parent
+    property double koef : 0.0
+//    property int oldVal : initialText1
+//    property int newVal : initialText2
 
     Item {
         height: 40
@@ -71,6 +75,7 @@ Item{
 
             ComponentSource{
                 id:itemDelegate
+
                 anchors {
                     left: parent.left
                     right: parent.right
@@ -79,9 +84,24 @@ Item{
                     bottom: parent.bottom
                     bottomMargin: 10
                 }
+                Image {
+                    id : closebut
+                    anchors.right: parent.right
+                    anchors.rightMargin: 5
+                    source: "../../images/list-delete.png"
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.verticalCenterOffset: 5
+                    MouseArea { anchors.fill:parent; onClicked: diametrModel.remove(index) }
+                }
+                ColorOverlay {
+                    anchors.fill: closebut
+                    source: closebut
+                    color: UIStyle.colorQtAuxGreen1  // make image like it lays under xxx glass
+                }
 
         }
-
+property alias totalPrice: itemDelegate.totalprice
+property alias oldweight: itemDelegate.weight
             // Animate adding and removing of items:
 //! [1]
             ListView.onAdd: SequentialAnimation {
@@ -98,19 +118,6 @@ Item{
             }
         }
 //! [1]
-    }
-
-
-    function apply()
-    {
-        console.log("list.count=",listView.count)
-        for(var i=0;i<listView.count+1;i++) //очень странный +1, тк должен выходить за пределы размера. НО РАБОТАЕТ!!!
-        {
-            listView.contentItem.children[i].totalprice = ((listView.contentItem.children[i].weight / 1000) * listView.contentItem.children[i].price).toFixed(2)
-
-            console.log(listView.contentItem.children[i].totalprice)
-            console.log(listView.contentItem.children[i].name)
-        }
     }
 
     ListView {
@@ -142,7 +149,7 @@ Item{
             anchors.horizontalCenter: buttons.horizontalCenter
             text: "Рассчитать"
             color: UIStyle.colorQtGray2
-            onClicked: apply()
+            onClicked: calculate()
         }
         TextButton {
             anchors.right: buttons.right
@@ -164,10 +171,26 @@ Item{
             bottomMargin: 10
         }
         about: "Диаметр"
-        intialText1: "Исходные"
+        initialText1: "Исходные"
         outputText1: "Новые"
 
-        intialText2: "Исходные"
+        initialText2: "Исходные"
         outputText2: "Новые"
+    }
+    //property alias initial1: proportions.initialText1
+    //property alias initial2: proportions.initialText2
+    function calculate()
+    {
+        console.log("list.count=",listView.count)
+        koef = parseFloat((Math.pow(proportions.newSize, 2) / Math.pow(proportions.oldSize, 2)).toFixed(1))
+        console.log("koef=",koef)
+        //console.log("initial2=",initial2)
+        for(var i=0;i<listView.count+1;i++) //очень странный +1, тк должен выходить за пределы размера. НО РАБОТАЕТ!!!
+        {
+            listView.contentItem.children[i].totalPrice = (koef * listView.contentItem.children[i].oldweight).toFixed(0)
+
+            console.log(listView.contentItem.children[i].totalPrice)
+            console.log(listView.contentItem.children[i].name)
+        }
     }
 }
