@@ -6,7 +6,9 @@ import QtGraphicalEffects 1.0
 Item{
     id:circle
     //anchors.fill: parent
-
+property double koef : 0.0
+property double s : 0.0
+property double q : 0.0
     Item {
         height: 40
         anchors {
@@ -99,7 +101,8 @@ Item{
                 }
 
         }
-
+            property alias totalPrice: itemDelegate.totalprice
+            property alias oldweight: itemDelegate.weight
             // Animate adding and removing of items:
 //! [1]
             ListView.onAdd: SequentialAnimation {
@@ -119,17 +122,6 @@ Item{
     }
 
 
-    function apply()
-    {
-        console.log("list.count=",listView.count)
-        for(var i=0;i<listView.count+1;i++) //очень странный +1, тк должен выходить за пределы размера. НО РАБОТАЕТ!!!
-        {
-            listView.contentItem.children[i].totalprice = ((listView.contentItem.children[i].weight / 1000) * listView.contentItem.children[i].price).toFixed(2)
-
-            console.log(listView.contentItem.children[i].totalprice)
-            console.log(listView.contentItem.children[i].name)
-        }
-    }
 
     ListView {
         id: listView
@@ -160,7 +152,7 @@ Item{
             anchors.horizontalCenter: buttons.horizontalCenter
             text: "Рассчитать"
             color: UIStyle.colorQtGray2
-            onClicked: apply()
+            onClicked: calculate()
         }
         TextButton {
             anchors.right: buttons.right
@@ -179,13 +171,32 @@ Item{
             //verticalCenter: diametr.verticalCenter
             //top: parent.top
             bottom:  buttons.top
-            bottomMargin: 10
+            bottomMargin: -70
         }
         about: "Размеры"
-        initialText1: "Радиус\nкруглой формы"
+        initialText1: "Диаметр\nкруглой формы"
         outputText1: "Сторона\nквадратной формы"
 
-        initialText2: "Исходные"
-        outputText2: "Новые"
+        //initialText2: "Исходные"
+        //outputText2: "Новые"
+    }
+    function calculate()
+    {
+        console.log("list.count=",listView.count)
+
+        s = parseFloat((proportions.newSize * proportions.newSize).toFixed(2))
+        q = parseFloat((Math.pow((proportions.oldSize/2), 2) * Math.PI ).toFixed(2))
+        //console.log("s=",s)
+        //console.log("q=",q)
+        koef = parseFloat((s/q).toFixed(2))
+        console.log("koef=",koef)
+        //console.log("initial2=",initial2)
+        for(var i=0;i<listView.count+1;i++) //очень странный +1, тк должен выходить за пределы размера. НО РАБОТАЕТ!!!
+        {
+            listView.contentItem.children[i].totalPrice = (koef * listView.contentItem.children[i].oldweight).toFixed(0)
+
+            console.log(listView.contentItem.children[i].totalPrice)
+            console.log(listView.contentItem.children[i].name)
+        }
     }
 }

@@ -168,21 +168,21 @@ property alias oldweight: itemDelegate.weight
             //verticalCenter: diametr.verticalCenter
             //top: parent.top
             bottom:  buttons.top
-            bottomMargin: 10
+            bottomMargin: -70
         }
         about: "Диаметр"
         initialText1: "Исходные"
         outputText1: "Новые"
 
-        initialText2: "Исходные"
-        outputText2: "Новые"
+        //initialText2: "Исходные"
+        //outputText2: "Новые"
     }
     //property alias initial1: proportions.initialText1
     //property alias initial2: proportions.initialText2
     function calculate()
     {
         console.log("list.count=",listView.count)
-        koef = parseFloat((Math.pow(proportions.newSize, 2) / Math.pow(proportions.oldSize, 2)).toFixed(1))
+        koef = parseFloat((Math.pow(proportions.newSize, 2) / Math.pow(proportions.oldSize, 2)).toFixed(2))
         console.log("koef=",koef)
         //console.log("initial2=",initial2)
         for(var i=0;i<listView.count+1;i++) //очень странный +1, тк должен выходить за пределы размера. НО РАБОТАЕТ!!!

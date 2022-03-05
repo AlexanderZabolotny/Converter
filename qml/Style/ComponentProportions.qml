@@ -11,8 +11,8 @@ Item {
     property alias initialText1: inputName.text
     property alias outputText1: outputName.text
 
-    property alias initialText2: inputName2.text
-    property alias outputText2: outputName2.text
+//    property alias initialText2: inputName2.text
+//    property alias outputText2: outputName2.text
 
     property alias oldSize: inputSize.text
     property alias newSize: newSize.text
@@ -70,51 +70,51 @@ Item {
         }
 
 
-        Label {
-            id: textWeight
-            anchors.top: newSize.bottom
-            anchors.topMargin: UIStyle.marginSizeXXS
-            //anchors.bottomMargin: 5
-            anchors.horizontalCenter: root.horizontalCenter
-            text: qsTr("Высота")
-        }
+//        Label {
+//            id: textWeight
+//            anchors.top: newSize.bottom
+//            anchors.topMargin: UIStyle.marginSizeXXS
+//            //anchors.bottomMargin: 5
+//            anchors.horizontalCenter: root.horizontalCenter
+//            text: qsTr("Высота")
+//        }
+//
+//        Text {
+//            id: inputName2
+//            anchors.top: textWeight.bottom
+//            anchors.topMargin: UIStyle.marginSizeXXS
+//            anchors.left: root.left
+//            anchors.leftMargin: 40
+//            text: qsTr("text")
+//        }
+//        TextInputField {
+//            id:inputSize2
+//            anchors.top: inputName2.bottom
+//            anchors.topMargin: UIStyle.marginSizeXXS
+//            anchors.left: root.left
+//            anchors.leftMargin: 80
+//            width:80
+//            height:40
+//        }
 
-        Text {
-            id: inputName2
-            anchors.top: textWeight.bottom
-            anchors.topMargin: UIStyle.marginSizeXXS
-            anchors.left: root.left
-            anchors.leftMargin: 40
-            text: qsTr("text")
-        }
-        TextInputField {
-            id:inputSize2
-            anchors.top: inputName2.bottom
-            anchors.topMargin: UIStyle.marginSizeXXS
-            anchors.left: root.left
-            anchors.leftMargin: 80
-            width:80
-            height:40
-        }
 
-
-        Label {
-            id: outputName2
-            anchors.top: textWeight.bottom
-            anchors.topMargin: UIStyle.marginSizeXXS
-            anchors.right: root.right
-            anchors.rightMargin: 40
-            text: qsTr("text")
-        }
-        TextInputField {
-            id: newSize2
-            anchors.top: outputName2.bottom
-            anchors.topMargin: UIStyle.marginSizeXXS
-            anchors.right: root.right
-            anchors.rightMargin: 80
-            width:80
-            height:40
-        }
+//        Label {
+//            id: outputName2
+//            anchors.top: textWeight.bottom
+//            anchors.topMargin: UIStyle.marginSizeXXS
+//            anchors.right: root.right
+//            anchors.rightMargin: 40
+//            text: qsTr("text")
+//        }
+//        TextInputField {
+//            id: newSize2
+//            anchors.top: outputName2.bottom
+//            anchors.topMargin: UIStyle.marginSizeXXS
+//            anchors.right: root.right
+//            anchors.rightMargin: 80
+//            width:80
+//            height:40
+//        }
 
     }
 
